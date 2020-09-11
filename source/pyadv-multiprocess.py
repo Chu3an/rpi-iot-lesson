@@ -1,4 +1,6 @@
 import time
+from multiprocessing import Process
+
 
 def counter(name, number):
     for i in range(number):
@@ -6,5 +8,10 @@ def counter(name, number):
         time.sleep(1)
 
 if __name__ == "__main__":
-    counter('Alpha', 5)
-    counter('Beta', 3)
+    ap = Process(target=counter, args=('Alpha', 5, ))
+    bp = Process(target=counter, args=('Beta', 3, ))
+    ap.start()
+    bp.start()
+    ap.join()
+    bp.join()
+    print('Main process down.')

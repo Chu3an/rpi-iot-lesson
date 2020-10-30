@@ -1,6 +1,6 @@
 import socket
 
-HOST, PORT = '127.0.0.1', 8000
+HOST, PORT = '192.168.50.130', 8000
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 server.listen(10)
